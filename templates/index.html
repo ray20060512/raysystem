@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>點餐系統</title>
+</head>
+<body>
+    <h1>點餐系統</h1>
+    <ul>
+        {% for item in menu_items %}
+        <li>
+            {{ item.name }} - {{ item.price }}元 - {{ item.size }}
+            <a href="{{ url_for('item', item_id=item.id) }}">查看</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('current') }}">目前餐點</a>
+</body>
+</html>

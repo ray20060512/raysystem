@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ item.name }}</title>
+</head>
+<body>
+    <h1>{{ item.name }}</h1>
+    <p>價格: {{ item.price }}元</p>
+    <p>大小: {{ item.size }}</p>
+
+    <form action="{{ url_for('edit_item', item_id=item.id) }}" method="post">
+        <label for="size">選擇大小:</label>
+        <select name="size" id="size">
+            <option value="小">小</option>
+            <option value="中" selected>中</option>
+            <option value="大">大</option>
+        </select>
+        <button type="submit">確認點餐</button>
+    </form>
+
+    <form action="{{ url_for('delete_item', item_id=item.id) }}" method="post">
+        <button type="submit">刪除餐點</button>
+    </form>
+    <a href="{{ url_for('index') }}">返回</a>
+</body>
+</html>
